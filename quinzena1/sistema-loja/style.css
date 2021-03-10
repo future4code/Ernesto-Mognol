@@ -1,0 +1,73 @@
+.cabecalho-principal{
+    background-color: grey;
+    padding: 20px 10px;
+}
+.pagina-ativa{
+    color:white;
+    background-color: darkcyan;
+    padding: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+.cabecalho-direito{
+    margin-top: 10px;
+    float: right;
+    margin-right: 32px;
+    font-size: 10pt;
+    vertical-align: middle;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    width: 60vw;
+    margin:0 auto;
+}
+#nodecor{
+    text-decoration: none;
+    color: white;
+    padding: 8px;
+    display: inline;
+}
+.rodape-principal{
+    background-color:#bfbfbf;
+    padding: 20px 10px;
+    opacity: 1;
+}
+.rodape-direito{
+    float: right;
+    margin-right: 32px;
+    font-size: 10pt;
+}
+#espacamento{
+    padding: 10px;
+}
+#titulo{
+    display: inline;
+    font-size: 20pt;
+    text-align: left;
+    margin-left: 16px;
+}
+#centro-texto{
+    text-align: center;
+}
+.linha-grifada1{
+    background-color: #bfbfbf;
+}
+.linha-grifada2{
+    background-color: grey;
+}
+li{
+    padding: 8px;
+}
+button{
+    background-color: gray;
+    border: 2px solid black;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 8px 8px;
+}
+.form-add{
+    text-align: center;
+}
