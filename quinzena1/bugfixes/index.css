@@ -83,6 +83,7 @@ div img {
     color: #c44f00;
     padding: 100px 0;
     font-size: 60px;
+    display: block;
 }
 
 
@@ -123,7 +124,6 @@ td button {
     border-radius: 5px;
     font-size: 10px;
     color: black;
-    padding: 8px 16px;
 }
 
 #back-button:hover {
