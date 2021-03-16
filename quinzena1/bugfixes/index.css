@@ -132,3 +132,8 @@ td button {
 #back-button:hover {
     background-color: #635a3d
 }
+
+table{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
