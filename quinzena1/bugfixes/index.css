@@ -124,6 +124,11 @@ td button:active{
     height: 100px;
 }
 
+#caixa-buscador{
+    border: 0;
+    outline: none;
+    border-bottom: 2px solid black;
+}
 
 #back-button {
     background-color: white;
