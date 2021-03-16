@@ -70,6 +70,8 @@ div img {
     background-color: #2274a5;
     color: white;
     padding-top: 8%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15 pt;
 }
 
 #container-de-descricao>ol {
