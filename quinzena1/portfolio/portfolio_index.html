@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="portfolio_style.css">
+    <title>Ernesto Fauth</title>
+</head>
+<body>
+    <div class="cabecalho_principal"><!--INICIO DO CABECALHO PRINCIPAL, DIVIDIDO EM ESQUERDO E DIREITO-->
+        <section class="cabecalho_esquerdo">
+            <a href="portfolio_index.html" id="logo_texto">EF</a>
+        </section>
+        <section class="cabecalho_direito">
+            <a class="link_cabecalho" href="#sobremim">SOBRE MIM</a>
+            <a class="link_cabecalho"  href="#minhasexp">EXPERIÊNCIAS</a>
+            <a class="link_cabecalho"  href="#habilidades">HABILIDADES</a>
+            <a class="link_cabecalho"  href="#projetos">PROJETOS</a>
+            <a class="link_cabecalho"  href="#contato">CONTATO</a>
+        </section>
+    </div>
+    <div>
+        <p id="titulos">ERNESTO FAUTH MOGNOL</p>
+        <img src="img/foto_principal.jpg" height="200" width="auto"/>
+    </div>
+    <!-- SEÇÃO SOBRE MIM -->
+    <div>
+        <p id="sobremim">SOBRE MIM</p>
+        <section class="secao_sobremim">
+            <p>
+                SOU DA CIDADE DE PORTO ALEGRE, NO RIO GRANDE DO SUL. TENHO 23 ANOS E SOU BACHAREL EM 
+                ENGENHARIA MECÂNICA PELA PUC-RS DESDE JANEIRO DE 2020. TENHO EXPERIÊNCIAS EM INDÚSTRIA AUTOMOTIVA 
+                E COM REVENDA DE SOFTWARES PARA INDÚSTRIA. ATUALMENTE FAÇO O CURSO DE DESENVOLVEDOR WEB FRONT-END NA LABENU PARA ENTRAR NA ÁREA
+                DE TECNOLOGIA.
+            </p>
+        </section> 
+    </div>
+    <!-- SEÇÃO MINHAS EXPERIÊNCIAS E CURSOS -->
+    <div>
+        <p id="minhasexp">MINHAS EXPERIÊNCIAS E CURSOS</p>
+        <section class="secao_minhasexp">
+            <h3 class="subtitulo">EXPERIÊNCIAS PROFISSIONAIS</h3>
+                <p class="empresa_periodo">PRODUTTARE SOFTWARE: MAR/2020 - PRESENTE</p>
+                <p class="cargo_ativ">Especialista em NX CAD/CAM: <em>Trabalhei com pré-vendas, pós-vendas e Prova de Conceito (POC).</em></p>
+                <p class="empresa_periodo">NEXTEER AUTOMOTIVE: JAN/2018 - DEZ/2019</p>
+                <p class="cargo_ativ">Estagiário de Engenharia: <em>Trabalhei diretamente na linha de produção auxiliando os engenheiros.</em></p>
+                <p class="empresa_periodo">LABORATÓRIO NT-SOLAR: AGO/2016 - FEV/2018</p>
+                <p class="cargo_ativ">Bolsista IC: <em>Trabalhei com desenvolvimento de processos e publicação de artigos.</em></p>
+            <h3 class="subtitulo">FORMAÇÃO ACADÊMICA</h3>
+                <p class="empresa_periodo">LABENU: FEV/2021 - AGO/2021</p>
+                <p class="cargo_ativ"><em>Desenvolvedor Web Front-End.</em></p>
+                <p class="empresa_periodo">PUC-RS: MAR/2015 - DEZ/2019</p>
+                <p class="cargo_ativ"><em>Bacharelado em Engenharia Mecânica.</em></p>
+        </section>
+    </div>
+    <!-- SEÇÃO MINHAS HABILIDADES TÉCNICAS E COMPORTAMENTAIS -->
+    <div>
+        <p id="habilidades">MINHAS HABILIDADES</p>
+        <section class="secao_habilidades">
+            <h3 class="subtitulo">TÉCNICAS</h3>
+                <p class="empresa_periodo">HTML</p>
+                <p class="cargo_ativ"><em>Habilidade desenvolvida no curso da Labenu.</em></p>
+                <p class="empresa_periodo">CSS</p>
+                <p class="cargo_ativ"><em>Habilidade desenvolvida no curso da Labenu.</em></p>
+                <p class="empresa_periodo">Modelagem 3D em CAD</p>
+                <p class="cargo_ativ"><em>Habilidade desenvolvida durante a graduação e mercado de trabalho.</em></p>
+            <h3 class="subtitulo">COMPORTAMENTAIS</h3>
+                <p class="empresa_periodo">COMPANHEIRISMO</p>
+                <p class="cargo_ativ"><em>Trabalho com facilidade em equipes e procuro entender a participação de todos.</em></p>
+                <p class="empresa_periodo">COMPROMETIMENTO</p>
+                <p class="cargo_ativ"><em>Faço compromisso do início ao fim com o projeto que aceitei!</em></p>
+                <p class="empresa_periodo">COMUNICAÇÃO</p>
+                <p class="cargo_ativ"><em>Comunico minhas ideias e pontos de vista com clareza, assim como escuto com assertividade.</em></p>
+        </section>
+    </div>
+    <!-- SEÇÃO COM MEUS PROJETOS -->
+    <div>
+        <p id="projetos">PROJETOS</p>
+        <table class="projetos_1">
+            <tr>
+                <th>LOJA INVARIÁVEL INFORMÁTICA</th>
+                <th>PORTFOLIO</th>
+            </tr>
+            <tr>
+                <td><a href="projeto_loja.html"><img src="./img/loja_1.png" alt="Invariavel Informatica" class="imagem_projeto"></a></td>
+                <td><a href="projeto_portfolio.html"><img src="./img/portfolio_1.PNG" alt="Portfolio" class="imagem_projeto"></a></td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <p id="contato">ENTRE EM CONTATO COMIGO</p>
+        <section class="secao_contato">
+            <form>
+                <!-- nome no formulário -->
+                <label for="nome_form">NOME COMPLETO</label>
+                <input type="text" id="nome_form" name="nome_form" placeholder="Digite seu nome...">
+                <!-- e-mail no formulário -->
+                <label for="email_form">SEU E-MAIL</label>
+                <input type="email" id="email_form" name="email_form" placeholder="Digite seu e-mail...">
+                <!-- comentário de quem está enviando o contato -->
+                <label for="mensagem_form">MENSAGEM</label>
+                <textarea id="mensagem_form" name="mensagem_form" placeholder="Digite aqui o motivo do seu contato!"></textarea>
+            </form>
+        </section>
+    </div>
+    <div class="rodape_principal">
+        <section class="rodape_esquerdo">
+            <a href="portfolio_index.html" id="logo_texto">EF</a>
+        </section>
+        <section class="rodape_direito">
+            <a href="https://www.linkedin.com/in/ernesto-fauth-mognol/"><img src="./img/icon_linkedin.png" alt="LinkedIn" class="icones_contatos"></a>
+            <a href="https://www.instagram.com/ernestofauth/"><img src="./img/icon_instagram.png" alt="Instagram" class="icones_contatos"></a>
+            <a href="mailto:ernestofmognol@gmail.com"><img src="./img/icon_email.png" alt="Email" class="icones_contatos"></a>
+        </section>
+    </div>
+</body>
+</html>
