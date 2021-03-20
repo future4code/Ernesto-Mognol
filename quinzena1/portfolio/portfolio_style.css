@@ -1,0 +1,140 @@
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color:rgb(210,216,220);
+    width: 55%;
+    margin: 0 auto;
+    text-align: center;
+}
+.cabecalho_principal, .rodape_principal{
+    background-color: rgb(80,181,200);
+    padding: 16px 8px;
+    overflow: hidden;
+    border-radius: 25px;
+}
+.cabecalho_direito, .rodape_direito{
+    float: right;
+    padding-top: 3.7%;
+    padding-right: 2%;
+    display: inline;
+    font-size: 12pt;
+    font-weight: bold;
+    text-decoration: none;
+}
+.cabecalho_esquerdo, .rodape_esquerdo{
+    float: left;
+    margin: 16px;
+    display: inline;
+}
+a.link_cabecalho{
+    text-decoration: none;
+    color: whitesmoke;
+    margin-left: 10px;
+}
+a.link_cabecalho:hover{
+    background-color: rgb(39,107,126);
+    padding: 8px;
+    font-size: 14pt;
+    border-radius: 5px;
+    color: white;
+    transition: 0.1s;
+}
+#logo_texto{
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    background: rgb(14,40,40);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+    padding:8px;
+    border-style: solid;
+    border-color: rgb(210,216,220);
+    border-width: 5     px;
+    font-weight: bold;
+    font-size: 16pt;
+    color: whitesmoke;
+    float: left;
+    text-decoration: none;
+}
+h3.blank{
+        font-size: 32pt;
+}
+p#titulos{
+    font-size: 24pt;
+    color: rbg(14,40,40);
+}
+#sobremim, #minhasexp, #habilidades, #projetos, #contato{
+    font-size: 20pt;
+    color: rgb(14,40,40,);
+}
+.secao_sobremim{
+    color: whitesmoke;
+    padding: 3px 20px;
+    background-color:rgb(39,107,126);
+    border-radius: 30px;
+    text-align: justify;
+}
+.secao_minhasexp, .secao_habilidades{
+    color: whitesmoke;
+    padding: 3px 5px;
+    background-color:rgb(39,107,126);
+    border-radius: 30px;
+    text-align: left;
+}
+h3.subtitulo{
+    margin-left: 2%;
+    font-weight: bolder;
+    border-bottom: 2px solid rgb(14,40,40);
+    width: 35%;
+}
+p.cargo_ativ{
+    margin-left: 7%;
+    color: rgb(210,216,220);
+}
+p.empresa_periodo{
+    margin-left: 4%;
+    font-weight: bold;
+}
+#nome_form, #email_form, #mensagem_form{
+    display: block;
+    text-align: left;
+    position: relative;
+    margin: 0 auto;
+    width: 450px;
+    margin-bottom: 8px;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 25px;
+    font-size: 12pt;
+}
+#mensagem_form{
+    height: 120px;
+}
+.secao_contato{
+    color: whitesmoke;
+    padding: 3px 20px;
+    background-color:rgb(39,107,126);
+    border-radius: 30px;
+    text-align: center;
+    margin-bottom: 24px;
+}
+.icones_contatos{
+    height: 50px;
+    width: auto;
+}
+.icones_contatos:hover{
+    border: 3px solid rgb(210,216,220);
+    border-radius: 50%;
+    margin: 0 auto;
+}
+.imagem_projeto{
+    padding-top: 8px;
+    height: 300px;
+    width: 500px;
+}
+th{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 18pt;
+    font-weight: normal;
+}

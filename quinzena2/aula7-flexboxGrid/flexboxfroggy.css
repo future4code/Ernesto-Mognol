@@ -1,0 +1,86 @@
+/* NIVEL 1 */
+justify-content: flex-end;
+
+/* NIVEL 2 */
+justify-content: center;
+
+/* NIVEL 3 */
+justify-content: space-around;
+
+/* NIVEL 4 */
+justify-content: space-between;
+
+/* NIVEL 5 */
+align-items: flex-end;
+
+/* NIVEL 6 */
+justify-content: center;
+align-items: center;
+
+/* NIVEL 7 */
+justify-content: space-around;
+align-items: flex-end;
+
+/* NIVEL 8 */
+flex-direction: row-reverse;
+
+/* NIVEL 9 */
+flex-direction: column;
+
+/* NIVEL 10 */
+flex-direction: row-reverse;
+justify-content: flex-end;
+
+/* NIVEL 11 */
+flex-direction: column;
+justify-content: flex-end;
+
+/* NIVEL 12 */
+flex-direction: column-reverse;
+justify-content: space-between;
+
+/* NIVEL 13 */
+flex-direction: row-reverse;
+justify-content: center;
+align-items: flex-end;
+
+/* NIVEL 14 */
+order: 1;
+
+/* NIVEL 15 */
+order: -2;
+
+/* NIVEL 16 */
+align-self: flex-end;
+
+/* NIVEL 17 */
+order: 1;
+align-self: flex-end;
+
+/* NIVEL 18 */
+flex-wrap: wrap;
+
+/* NIVEL 19 */
+flex-direction: column;
+flex-wrap: wrap;
+
+/* NIVEL 20 */
+flex-flow: column wrap;
+
+/* NIVEL 21 */
+align-content: flex-start;
+
+/* NIVEL 22 */
+align-content: flex-end;
+
+/* NIVEL 23 */
+flex-direction: column-reverse;
+align-content: center;
+
+/* NIVEL 24 */
+flex-flow: column-reverse wrap-reverse;
+justify-content: center;
+align-content: space-between;
+
+
+
