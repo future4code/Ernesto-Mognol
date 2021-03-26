@@ -1,0 +1,194 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+
+div {
+    border: 1px solid black;
+    margin-bottom: 2vh;
+}
+
+#first-block {
+    background-color: red;
+    color: red;
+    width: 100%;
+    height: 9vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.blue-block {
+    background-color: blue;
+    height: 9vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.yellow-block {
+    background-color: yellow;
+    height: 9vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.green-block {
+    background-color: green;
+    height: 9vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.black-block {
+    background-color: black;
+    color: white;
+    height: 35vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.white-block {
+    background-color: white;
+    height: 9vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (min-width: 400px){
+    #first-block {
+        background-color: red;
+        color: red;
+        width: 100%;
+        margin-bottom: 2vh;
+    }
+    
+    .blue-block {
+        background-color: blue;
+        margin-bottom: 2vh;
+    }
+    
+    .yellow-block {
+        background-color: yellow;
+        margin-bottom: 2vh;
+    }
+    
+    .green-block {
+        background-color: green;
+        margin-bottom: 2vh;
+    }
+    
+    .black-block {
+        background-color: black;
+        color: white;
+        margin-bottom: 2vh;
+    }
+    
+    .white-block {
+        background-color: white;
+        margin-bottom: 2vh;
+    }
+}
+@media screen and (min-width: 600px){
+    #main-container{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    #first-block {
+        background-color: red;
+        color: red;
+        width: 100%;
+        margin-bottom: 2vh;
+    }
+    
+    .blue-block {
+        background-color: blue;
+        margin: 0vh 2% 2vh 2%;
+        width: 45.3%;
+    }
+    
+    .yellow-block {
+        background-color: yellow;
+        margin: 0vh 2% 2vh 2%;
+        width: 46%;
+    }
+    
+    .green-block {
+        background-color: green;
+        width: 100%;
+        margin: 0vh 2% 2vh 2%;
+    }
+    
+    .black-block {
+        background-color: black;
+        color: white;
+        width: 45.5%;
+        margin-bottom: 2vh;
+        margin: 0vh 2% 2vh 2%;
+    }
+    
+    .white-block {
+        background-color: white;
+        margin-bottom: 2vh;
+        margin: 0vh 2% 2vh 2%;
+        width: 45.5%;
+    }
+    div:nth-of-type(12){
+        width: 100%;
+        margin-bottom: 2vh;
+        margin: 0vh 2% 2vh 2%;
+    }
+}
+@media screen and (min-width: 800px){
+    #main-container{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    #first-block {
+        background-color: red;
+        color: red;
+        width: 100%;
+        margin-bottom: 2vh;
+    }
+    
+    .blue-block {
+        background-color: blue;
+        margin-bottom: 2vh;
+        width: 29%;
+    }
+    
+    .yellow-block {
+        background-color: yellow;
+        margin-bottom: 2vh;
+        width: 29%;
+    }
+    
+    .green-block {
+        background-color: green;
+        margin-bottom: 2vh;
+        width: 29%;
+    }
+    
+    .black-block {
+        background-color: black;
+        color: white;
+        margin-bottom: 2vh;
+    }
+    
+    .white-block {
+        background-color: white;
+        margin-bottom: 2vh;
+        width: 29%;
+    }
+    div:nth-of-type(12){
+        width: 29%;
+    }
+}
