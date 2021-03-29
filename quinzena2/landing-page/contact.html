@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index_style.css">
+    <title>4SAFE - CONTATO</title>
+</head>
+<body>
+    <header>
+        <section id="cabecalho_esquerdo">
+            <div id="container_logo_header"></div>
+                <a href="index.html"><img src="img/4safe_logo2.png" alt="Logomarca_4SAFE" id="logo_header"></a>
+            </div>
+            <div id="container_texto_logo">
+                <a href="index.html" id="texto_logo">4SAFE</a>
+            </div>
+        </section>
+        <nav>
+            <ul id="menu_header">
+                <a href="about.html" class="menu_header"><li>QUEM SOMOS</li></a>
+                <a href="products.html" class="menu_header"><li>NOSSOS PRODUTOS</li></a>
+                <a href="location.html" class="menu_header"><li>ONDE ESTAMOS</li></a>
+                <a href="contact.html" class="menu_header"><li>CONTATO</li></a>
+            </ul>
+        </nav>
+        <section id="cabecalho_direito">
+                <a href="login.html" class="botao">LOGIN</a>
+                <a href="signup.html" class="botao">CADASTRO</a>
+        </section>
+    </header>
+    <main class="contato">
+            <form>
+                <!-- nome no formulário -->
+                <label for="nome_form">NOME COMPLETO</label>
+                <input type="text" id="nome_form" name="nome_form" class= "lacuna_form" placeholder="Digite seu nome...">
+                <!-- e-mail no formulário -->
+                <label for="email_form">SEU E-MAIL</label>
+                <input type="email" id="email_form" name="email_form" class= "lacuna_form" placeholder="Digite seu e-mail...">
+                <!-- telefone no formulário -->
+                <label for="telefone_form">SEU TELEFONE</label>
+                <input type="number" id="telefone_form" name="telefone_form" class= "lacuna_form" placeholder="(XX)XXXXX-XXXX">
+                <!-- motivo do contato no formulário -->
+                <label for="mensagem_form">MOTIVO DO CONTATO</label>
+                <select name="nome_vendedor" id="nome_vendedor">
+                    <option value="EMPREGABILIDADE">EMPREGABILIDADE</option>
+                    <option value="ATENDIMENTO">ATENDIMENTO</option>
+                    <option value="CONSULTA">CONSULTA</option>
+                    <option value="RECLAMACAO">RECLAMAÇÃO</option>
+                </select>
+                <!-- comentário de quem está enviando o contato -->
+                <label for="mensagem_form">MENSAGEM</label>
+                <textarea id="mensagem_form" name="mensagem_form" placeholder="Deixe uma mensagem para nós!"></textarea>
+                <button type="submit" class="botao">ENVIAR</button>
+            </form>
+    </main>
+    <footer>
+        <ul id="sociais_footer">
+            <li class="sociais_footer"><a href="https://www.facebook.com/" target="_blank"><img src="img/icon_facebook.png" alt="Icone_Facebook" class="imagem_icone"></a></li>
+            <li class="sociais_footer"><a href="https://www.instagram.com/" target="_blank"><img src="img/icon_instagram.png" alt="Icone_Instagram" class="imagem_icone"></a></li>
+            <li class="sociais_footer"><a href="https://twitter.com/" target="_blank"><img src="img/icon_twitter.png" alt="Icone_Twitter" class="imagem_icone"></a></li>
+        </ul>
+    </footer>    
+</body>
+</html>
