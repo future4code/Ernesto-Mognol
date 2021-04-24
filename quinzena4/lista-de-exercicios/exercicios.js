@@ -138,7 +138,11 @@ function segundoMaiorEMenor(array) {
 //Exercício 11
 
 function ordenaArray(array) {
-   // implemente sua lógica aqui
+   array = [20, 13, -1, 2, 5, 49, -40, 10, 70, 5]
+   let output = array.sort(compararNumero = (a,b) => {
+      return a-b
+   })
+   return output
 }
 
 // Exercício 12
