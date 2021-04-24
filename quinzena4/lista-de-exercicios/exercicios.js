@@ -8,13 +8,26 @@ function inverteArray(array) {
 //Exercício 2
 
 function retornaNumerosParesElevadosADois (array) {
-   // implemente sua lógica aqui
+   array = [1, 2, 3, 4, 5, 6]
+   let arrElevado = []
+   for(let x of array){
+      if(x % 2 == 0)
+         arrElevado.push(x*x) 
+   }
+   return arrElevado
 }
 
 //Exercício 3
 
 function retornaNumerosPares (array) {
-   // implemente sua lógica aqui
+   array = [1, 2, 3, 4, 5, 6]
+   let arrPares = []
+   for(let x of array){
+      if(x % 2 === 0){
+         arrPares.push(x)
+      }
+   }
+   return arrPares
 }
 
 //Exercício 4
