@@ -127,7 +127,12 @@ function comparaDoisNumeros(num1, num2) {
 // Exercício 10
 
 function segundoMaiorEMenor(array) {
-   // implemente sua lógica aqui
+   array = [50, 46, 102, 34, 26, -1, 2, 15]
+   array.sort(compararNumero = (a,b) => {
+      return a-b
+   })
+   let output = [array[(array.length-2)], array[1]]
+   return output
 }
 
 //Exercício 11
