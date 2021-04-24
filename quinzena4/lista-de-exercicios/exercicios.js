@@ -97,7 +97,31 @@ function checaTriangulo(a, b, c) {
 // Exercício 9
 
 function comparaDoisNumeros(num1, num2) {
-   // implemente sua lógica aqui
+   num1 = 15
+   num2 = 30
+   let maiorNumeroC = 0
+   let menorNumeroC = 0
+      if(num1 > num2){
+         maiorNumeroC = num1
+         menorNumeroC = num2
+      }
+      else{
+         maiorNumeroC = num2
+         menorNumeroC = num1
+      }
+   let maiorDivisivelporMenorC = false
+      if(maiorNumeroC % menorNumeroC === 0){
+         maiorDivisivelporMenorC = true
+      }
+   let diferencaC = num2 - num1
+      if(diferencaC < 0)
+         diferencaC = diferencaC * -1
+   const output = {
+      maiorNumero: maiorNumeroC,
+      maiorDivisivelporMenor: maiorDivisivelporMenorC,
+      diferenca: diferencaC
+   }
+   return output
 }
 
 // Exercício 10
