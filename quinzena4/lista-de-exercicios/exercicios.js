@@ -64,13 +64,21 @@ function retornaExpressoesBooleanas() {
 //Exercício 7
 
 function retornaNNumerosPares(n) {
-   // implemente sua lógica aqui
+   const arrNumeros = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+   let arrNumPares = []
+   for(let x of arrNumeros)
+      if(x % 2 === 0){
+         arrNumPares.push(x)
+      }
+   n = 5
+   arrNumPares.length = n
+   return arrNumPares
 }
 
 // Exercício 8
 
 function checaTriangulo(a, b, c) {
-  // implemente sua lógica aqui
+   // implemente sua lógica aqui
 }
 
 // Exercício 9
