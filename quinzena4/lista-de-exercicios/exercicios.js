@@ -116,12 +116,12 @@ function comparaDoisNumeros(num1, num2) {
    let diferencaC = num2 - num1
       if(diferencaC < 0)
          diferencaC = diferencaC * -1
-   const output = {
+   const comparacao = {
       maiorNumero: maiorNumeroC,
       maiorDivisivelporMenor: maiorDivisivelporMenorC,
       diferenca: diferencaC
    }
-   return output
+   return comparacao
 }
 
 // Exercício 10
@@ -131,24 +131,30 @@ function segundoMaiorEMenor(array) {
    array.sort(compararNumero = (a,b) => {
       return a-b
    })
-   let output = [array[(array.length-2)], array[1]]
-   return output
+   let arrMaiorEMenor = [array[(array.length-2)], array[1]]
+   return arrMaiorEMenor
 }
 
 //Exercício 11
 
 function ordenaArray(array) {
    array = [20, 13, -1, 2, 5, 49, -40, 10, 70, 5]
-   let output = array.sort(compararNumero = (a,b) => {
+   let arrOrdenado = array.sort(compararNumero = (a,b) => {
       return a-b
    })
-   return output
+   return arrOrdenado
 }
 
 // Exercício 12
 
 function filmeFavorito() {
-   // implemente sua lógica aqui
+   const filme = {
+      nome: 'O Diabo Veste Prada',
+      ano: 2006,
+      diretor: 'David Frankel',
+      atores: ['Meryl Streep', 'Anne Hathaway', 'Emily Blunt', 'Stanley Tucci']
+   }
+   return filme
 }
 
 // Exercício 13
