@@ -267,7 +267,6 @@ function verificaParidade(array) {
          arraystrings.push(`${x} é ímpar`)
       }
    }
-   console.log(arraystrings)
    return arraystrings
 }
 
@@ -285,14 +284,26 @@ const pessoas = [
 //Exercício 18, letra A
 
 function retornaPessoasAutorizadas() {
-   // implemente sua lógica aqui
+   const pessoasAutorizadas = []
+   pessoas.forEach(pessoa => {
+      if(pessoa.idade > 14 && pessoa.idade < 60 && pessoa.altura > 1.5){
+         pessoasAutorizadas.push(pessoa)
+      }
+   })
+   return pessoasAutorizadas
 }
 
 
 // Exercício 18, letra B
 
 function retornaPessoasNaoAutorizadas() {
-   // implemente sua lógica aqui
+   const pessoasNaoAutorizadas = []
+   pessoas.forEach(pessoa => {
+      if(pessoa.idade < 14 || pessoa.idade > 60 || pessoa.altura < 1.5){
+         pessoasNaoAutorizadas.push(pessoa)
+      }
+   })
+   return pessoasNaoAutorizadas
 }
 
 //Exercício 19
