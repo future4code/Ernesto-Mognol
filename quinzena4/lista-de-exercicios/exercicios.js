@@ -187,7 +187,13 @@ function criaRetangulo(lado1, lado2) {
 // Exercício 15
 
 function anonimizaPessoa(pessoa) {
-   // implemente sua lógica aqui
+   const pessoaAnonima = {
+      nome: "ANÔNIMO",
+      idade: 25,
+      email: "astrodev@future4.com.br",
+      endereco: "Rua do Futuro, 4"
+    }
+    return pessoaAnonima
 }
 
 // Exercício 16
@@ -202,13 +208,25 @@ const arrayDePessoas = [
 // Exercício 16, letra A
 
 function maioresDe18(arrayDePessoas) {
-   // implemente sua lógica aqui
+   arrayMaioridade = []
+   arrayDePessoas.forEach(pessoa => {
+      if(pessoa.idade > 18){
+         arrayMaioridade.push(pessoa)
+      }
+   })
+   return arrayMaioridade
 }
 
 // Exercício 16, letra B
 
 function menoresDe18(arrayDePessoas) {
-   // implemente sua lógica aqui
+   arrayMenoridade = []
+   arrayDePessoas.forEach(pessoa => {
+      if(pessoa.idade < 18){
+         arrayMenoridade.push(pessoa)
+      }
+   })
+   return arrayMenoridade
 }
 
 // Exercício 17, letra A
