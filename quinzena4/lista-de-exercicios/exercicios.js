@@ -78,20 +78,15 @@ function retornaNNumerosPares(n) {
 // Exercício 8
 
 function checaTriangulo(a, b, c) {
-   let tests = [false, false, false]
    if(a === b && b === c){
-      // console.log('Triângulo equilátero.')
-      tests[0] = true // equilátero
+      return "Equilátero"
    }
    else if((a === b || a === c) && (b != a || b != c)){
-      // console.log('Triângulo isóceles.')
-      tests[1] = true // isóceles
+      return "Isósceles"
    }
    else if(a != b && b != c && a != c){
-      // console.log('Triângulo escaleno.')
-      tests[2] = true // escaleno
+      return "Escaleno"
    }
-   return tests
 }
 
 // Exercício 9
@@ -232,7 +227,7 @@ function menoresDe18(arrayDePessoas) {
 // Exercício 17, letra A
 
 function multiplicaArrayPor2(array) {
-   array = [1, 2, 3, 4, 5, 6]
+   array = [-1, 1, 2, 5, 25, 4]
    const arrayx2 = []
    for(let x of array){
       x = x *2
@@ -244,7 +239,7 @@ function multiplicaArrayPor2(array) {
 // Exercício 17, letra B
 
 function multiplicaArrayPor2S(array) {
-   array = [1, 2, 3, 4, 5, 6]
+   array = [-1, 1, 2, 5, 25, 4]
    const arrayx2s = []
    for(let x of array){
       x = x*2
@@ -257,7 +252,7 @@ function multiplicaArrayPor2S(array) {
 // Exercício 17, letra C
 
 function verificaParidade(array) {
-   array = [1, 2, 3, 4, 5, 6]
+   array = [0, 1, 2, 5, 25, 4]
    const arraystrings = []
    for(let x of array){
       if(x % 2 === 0){
@@ -318,20 +313,37 @@ const consultasNome = [
  //Exercício 19, letra A
  
  function ordenaPorNome() {
-  
+   consultasNome.sort(compararNomes = (a,b) => {
+      if(a.nome > b.nome){
+         return 1
+      }
+      else if(a.nome < b.nome){
+         return -1
+      }
+   })
+   return consultasNome
  }
  
  // Exercício 19, letra B
  
  const consultasData = [
-   { nome: "João", dataDaConsulta: "01/10/2021" },
-   { nome: "Pedro", dataDaConsulta: "02/07/2021" },
-   { nome: "Paula", dataDaConsulta: "03/11/2021" },
-   { nome: "Márcia",  dataDaConsulta: "04/05/2021" }
+   { nome: "João", dataDaConsulta: new Date(2021,9,1) },
+   { nome: "Pedro", dataDaConsulta: new Date (2021,6,2) },
+   { nome: "Paula", dataDaConsulta: new Date (2021,10,3) },
+   { nome: "Márcia",  dataDaConsulta: new Date (2021,3,5) }
  ]
  
  function ordenaPorData() {
- 
+   consultasData.sort(compararDatas = (a,b) => {
+      if(a.dataDaConsulta > b.dataDaConsulta){
+         return 1
+      }
+      else if(a.dataDaConsulta < b.dataDaConsulta){
+         return -1
+      }
+   })
+   console.log(consultasData)
+   return consultasData
  }
 
 //Exercício 20
