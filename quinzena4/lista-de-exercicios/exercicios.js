@@ -342,7 +342,6 @@ const consultasNome = [
          return -1
       }
    })
-   console.log(consultasData)
    return consultasData
  }
 
@@ -358,5 +357,10 @@ const contas = [
 ]
 
 function atualizaSaldo() {
-  // implemente sua lógica aqui
+   const redutor = (acumulado, valorAtual) => acumulado + valorAtual;
+   contas.forEach(clienteBanco => {
+      let totalCompras = clienteBanco.compras.reduce(redutor,0)
+      clienteBanco.saldoTotal = clienteBanco.saldoTotal - totalCompras
+   });
+   return contas
 }
