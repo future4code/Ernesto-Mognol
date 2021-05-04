@@ -22,7 +22,8 @@ export class SecaoComentario extends Component {
 		console.log(event.target.value)
 	};
 	render() {
-		return <CommentContainer>
+		return <div>
+			<CommentContainer>
 			<InputComentario
 				placeholder={'Comentário'}
 				value={this.state.valorComentariovalorComentario}
@@ -30,6 +31,8 @@ export class SecaoComentario extends Component {
 			/>
 			<button onClick={this.props.aoEnviar}>Enviar</button>
 		</CommentContainer>
+		<h4>Texto: {this.state.valorComentario}</h4>
+		</div>
 		
 	}
 }
