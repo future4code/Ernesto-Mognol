@@ -1,0 +1,47 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.AppHeader{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.AppBody{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.InputContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Input{
+  width: 220px;
+  height: 20px;
+}
+#delete-button {
+  height: 30px;
+  margin-left: 8px;
+}
+#UsersMapping {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
