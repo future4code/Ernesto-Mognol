@@ -18,6 +18,40 @@ const EmptyProfiles = styled.div`
     font-size: 18pt;
 `;
 
+const MatchesContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-self: start;
+    width: 100%;
+`;
+
+const UserContainer = styled.div`
+    display: flex;
+    align-items: center;
+    background-color: whitesmoke;
+    width: 100%;
+    margin: 4px 0;
+    border-radius: 10px;
+`;
+
+const PhotoContainer = styled.div`
+    margin: 8px 24px;
+`
+
+const MatchPhoto = styled.img`
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+`
+
+const NameAndAgeContainer = styled.div``
+
+const NameContainer = styled.div`
+    font-weight: bold;`
+
+const AgeContainer = styled.div``
+
 function Matches() {
 
     const [matchesList, setMatchesList] = useState([]);
@@ -36,21 +70,28 @@ function Matches() {
         getMatches()
     }, []);
 
-    if(matchesList.length !== 0){
+    if (matchesList.length !== 0) {
         return (
-            <div>
-                {matchesList.map((user) => {
-                    return(
-                    <div>
-                        {user.name}
-                        {user.age}
-                    </div>)
-                })}
-            </div>
+            <AppContainer>
+                <MatchesContainer>
+                    {matchesList.map((user) => {
+                        return (
+                            <UserContainer>
+                                <PhotoContainer>
+                                    <MatchPhoto src={user.photo} alt={user.name} />
+                                </PhotoContainer>
+                                <NameAndAgeContainer>
+                                    <NameContainer>{user.name}</NameContainer>
+                                    <AgeContainer>{user.age} anos</AgeContainer>
+                                </NameAndAgeContainer>
+                            </UserContainer>)
+                    })}
+                </MatchesContainer>
+            </AppContainer>
         )
     }
-    else if(matchesList.length === 0){
-        return(
+    else if (matchesList.length === 0) {
+        return (
             <AppContainer>
                 <EmptyProfiles>
                     VOCÊ AINDA NÃO DEU NENHUM MATCH! VOLTE PARA A TELA INÍCIA E COMECE A CURTIR!

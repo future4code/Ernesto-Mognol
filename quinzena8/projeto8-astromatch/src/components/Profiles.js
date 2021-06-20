@@ -23,6 +23,7 @@ const ProfileImg = styled.img`
     border-radius: 20px;
     object-fit: cover;
     margin: 10px 0;
+    box-shadow: 0px 0px 5px 8px rgba(0, 0, 0, 0.2);
 `;
 
 const ButtonContainer = styled.div`
@@ -52,6 +53,12 @@ const EmptyProfiles = styled.div`
     display: flex;
     align-items: center;
     font-size: 18pt;
+`;
+
+const ResetButton = styled.button`
+    height: 30px;
+    width: 120px;
+    margin-top: 16px;
 `;
 function Profiles() {
 
@@ -84,6 +91,9 @@ function Profiles() {
                 body
             )
             .then((response) => {
+                if(response.data.isMatch){
+                    alert("Vocês deram match! Mande uma mensagem para seu novo crush!")
+                }
                 getProfile();
             })
             .catch((error) => {console.log(error);});
@@ -104,6 +114,18 @@ function Profiles() {
             })
             .catch((error) => {console.log(error);});
     };
+
+    const resetApp = () =>{
+        axios
+            .put(
+                "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/ernestofauthmunoz/clear",
+                )
+            .then((response) =>{
+                alert("Aplicativo resetado!")
+            })
+            .catch((error)=> {console.log(error);});
+    };
+
     if(profilesList !== null){
         return (
             <AppContainer>
@@ -119,6 +141,7 @@ function Profiles() {
                     <ActionButton onClick={like}>CURTI</ActionButton>
                     <ActionButton onClick={dislike}>NÃO CURTI</ActionButton>
                 </ButtonContainer>
+                <ResetButton onClick = {resetApp}>RESET</ResetButton>
             </AppContainer>
         );
     }
@@ -128,6 +151,7 @@ function Profiles() {
                 <EmptyProfiles>
                     PARECE QUE NÃO HÁ MAIS PESSOAS NA SUA REGIÃO!
                 </EmptyProfiles>
+                <ResetButton onClick = {resetApp}>RESET</ResetButton>
             </AppContainer>
         )
     }

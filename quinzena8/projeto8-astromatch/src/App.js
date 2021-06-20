@@ -5,7 +5,7 @@ import Matches from './components/Matches.js'
 import Header from './components/Header.js'
 
 const PageContainer = styled.div`
-  width: 40vw;
+  width: 30vw;
   margin: 0 auto;
   font-family: Arial;
 `;
