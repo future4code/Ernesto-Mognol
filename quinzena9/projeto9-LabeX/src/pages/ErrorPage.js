@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
-const LoginPageMainContainer = styled.div`
+const ErrorPageMainContainer = styled.div`
     width: 60vw;
     height: 100vh;
     display: flex;
@@ -12,7 +12,7 @@ const LoginPageMainContainer = styled.div`
     margin: 0 auto;
 `;
 
-const LoginContainer = styled.div`
+const ErrorContainer = styled.div`
     width: 40%;
     height: 100%;
     display: flex;
@@ -21,16 +21,16 @@ const LoginContainer = styled.div`
     align-items: center;
 `;
 
-function LoginPage (){
+function ErrorPage (){
     return(
-        <LoginPageMainContainer>
+        <ErrorPageMainContainer>
             <Header />
-                <LoginContainer>
-                    <p>LOGIN PAGE</p>
-                </LoginContainer>
+            <ErrorContainer>
+                <p>ERROR PAGE</p>
+            </ErrorContainer>
             <Footer />
-        </LoginPageMainContainer>
+        </ErrorPageMainContainer>
     )
 }
 
-export default LoginPage
+export default ErrorPage

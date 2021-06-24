@@ -1,13 +1,10 @@
-import React, {useEffect, useState} from 'react';
-import axios from 'axios'
-import styled from 'styled-components'
-import './App.css';
+import React from 'react';
+import Router from './routes/Router';
+
 
 function App() {
   return (
-    <div className="App">
-      LABEX
-    </div>
+    <Router />
   );
 }
 
