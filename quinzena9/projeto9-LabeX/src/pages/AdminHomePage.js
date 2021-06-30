@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Header from '../components/Header';
 import {useHistory} from 'react-router-dom';
 import Footer from '../components/Footer';
+import useProtectedPage from '../hooks/useProtectedPage';
 
 const AdminHomePageMainContainer = styled.div`
     width: 60vw;
@@ -29,6 +30,8 @@ const ButtonContainer = styled.div`
 `;
 
 function AdminHomePage (){
+
+    useProtectedPage();
 
     const history = useHistory();
 

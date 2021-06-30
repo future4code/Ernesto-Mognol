@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Header from '../components/Header';
 import {useHistory} from 'react-router-dom';
 import Footer from '../components/Footer';
+import useProtectedPage from '../hooks/useProtectedPage';
 
 const CreateTripPageMainContainer = styled.div`
     width: 60vw;
@@ -30,11 +31,14 @@ const ButtonContainer = styled.div`
 
 function CreateTripPage (){
 
+    useProtectedPage();
+
     const history = useHistory();
 
     const goAdminHome = () => {
         history.push("/admin/trips/list");
     };
+    
     
     return (
         <CreateTripPageMainContainer>

@@ -37,7 +37,13 @@ function HomePage (){
     };
 
     const goAdminHomePage = () => {
-        history.push("/admin/trips/list");
+        const token = localStorage.getItem('token');
+        if(token === null){
+            history.push("/login");
+        }
+        else{
+            history.push("/admin/trips/list");
+        };
     };
 
     return (
