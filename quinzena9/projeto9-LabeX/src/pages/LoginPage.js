@@ -1,9 +1,10 @@
-import React, {useState} from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import {useHistory} from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+import useForm from '../hooks/useForm';
 
 const LoginPageMainContainer = styled.div`
     width: 60vw;
@@ -23,36 +24,25 @@ const LoginContainer = styled.div`
     align-items: center;
 `;
 
-const InputsContainer = styled.div`
+const InputsContainer = styled.form`
     display: flex;
     justify-content: space-around;
     width: 70%;
     margin-bottom: 8px;
 `;
 
-function LoginPage (){
+function LoginPage() {
 
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const { form, onChange, cleanFields} = useForm({ email: "", password: ""})
 
     const history = useHistory();
 
-    const onChangeEmail = (event) => {
-        setEmail(event.target.value);
-    };
-
-    const onChangePassword = (event) => {
-        setPassword(event.target.value);
-    };
-
-    const onSubmitLogin = () => {
-        const body = {
-            email: email,
-            password: password
-        };
-        axios.post("https://us-central1-labenu-apis.cloudfunctions.net/labeX/ernesto-fauth-munoz/login", body)
+    const submitLogin = (event) => {
+        event.preventDefault();
+        axios.post("https://us-central1-labenu-apis.cloudfunctions.net/labeX/ernesto-fauth-munoz/login", form)
             .then((response) => {
                 localStorage.setItem('token', response.data.token);
+                cleanFields();
                 history.push("/admin/trips/list");
             })
             .catch((error) => {
@@ -60,25 +50,29 @@ function LoginPage (){
             })
     };
 
-    return(
+    return (
         <LoginPageMainContainer>
             <Header />
-                <LoginContainer>
-                    <p>LOGIN PAGE</p>
-                    <InputsContainer>
+            <LoginContainer>
+                <p>LOGIN PAGE</p>
+                <InputsContainer onSubmit={submitLogin}>
                         <input
-                            placeholder = "E-mail"
-                            type = "email"
-                            value = {email}
-                            onChange = {onChangeEmail} />
+                            name="email"
+                            placeholder="E-mail"
+                            type="email"
+                            value={form.email}
+                            onChange={onChange}
+                            required />
                         <input
-                            placeholder = "Senha"
-                            type = "password"
-                            value = {password}
-                            onChange = {onChangePassword} />
-                    </InputsContainer>
-                    <button onClick = {onSubmitLogin}>LOGIN</button>
-                </LoginContainer>
+                            name="password"
+                            placeholder="Senha"
+                            type="password"
+                            value={form.password}
+                            onChange={onChange}
+                            required />
+                    <button>LOGIN</button>
+                </InputsContainer>
+            </LoginContainer>
             <Footer />
         </LoginPageMainContainer>
     )
