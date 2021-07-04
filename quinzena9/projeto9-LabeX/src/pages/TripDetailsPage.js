@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import PageTitle from '../components/PageTitle';
-import Button from '../components/Button'
+import Button from '../components/Button';
+import Loading from '../components/Loading';
 import styled from 'styled-components';
 import axios from 'axios';
 import { useHistory, useParams } from 'react-router-dom';
@@ -93,6 +94,7 @@ function TripDetailsPage() {
     const params = useParams();
 
     const [tripDetail, setTripDetail] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     const goAdminHome = () => {
         history.push("/admin/trips/list");
@@ -108,6 +110,11 @@ function TripDetailsPage() {
             })
             .then((response) => {
                 setTripDetail(response.data.trip);
+                setLoading(false);
+            })
+            .catch((error) => {
+                console.log(error.response.data);
+                setLoading(false);
             })
     }
 
@@ -151,58 +158,68 @@ function TripDetailsPage() {
             })
     };
 
-    return (
-        <TripDetailsPageMainContainer>
-            <Header />
-            <ButtonContainer>
-                <Button
-                    onClick={goAdminHome}
-                    buttonName="VOLTAR"
-                />
-            </ButtonContainer>
-            <PageTitle title={tripDetail.name} />
-            <TripDetailsContainer>
-                <TripDetail>Nome: {tripDetail.name}</TripDetail>
-                <TripDetail>Descrição: {tripDetail.description}</TripDetail>
-                <TripDetail>Planeta: {tripDetail.planet}</TripDetail>
-                <TripDetail>Duração: {tripDetail.durationInDays} dias</TripDetail>
-                <TripDetail>Data de partida: {tripDetail.date}</TripDetail>
-            </TripDetailsContainer>
-            <PageSubTitle>Candidatos pendentes</PageSubTitle>
-            <TripApplicantsContainer>
-                {tripDetail.candidates &&
-                    tripDetail.candidates.map((applier) => {
-                        return (
-                            <ApplicantCard key={applier.id}>
-                                <ApplierDetail>Candidato: {applier.name}</ApplierDetail>
-                                <ApplierDetail>Idade: {applier.age} anos</ApplierDetail>
-                                <ApplierDetail>País de origem: {applier.country}</ApplierDetail>
-                                <ApplierDetail>Profissão: {applier.profession}</ApplierDetail>
-                                <ApplierDetail>Motivação: {applier.applicationText}</ApplierDetail>
-                                <DetailButtonContainer>
-                                    <MiniButton onClick={() => aproveApplier(applier)}>APROVAR</MiniButton>
-                                    <MiniButton onClick={() => reproveApplier(applier)}>REPROVAR</MiniButton>
-                                </DetailButtonContainer>
-                            </ApplicantCard>
-                        );
-                    })}
-            </TripApplicantsContainer>
-            <PageSubTitle>Candidatos aprovados</PageSubTitle>
-            <div>
-                {tripDetail.approved &&
-                    tripDetail.approved.map((applier) => {
-                        return (
-                            <div key={applier.id}>
-                                <ul>
-                                    <li>{applier.name}, {applier.age} anos, {applier.country}</li>
-                                </ul>
-                            </div>
-                        );
-                    })}
-            </div>
-            <Footer />
-        </TripDetailsPageMainContainer>
-    )
+    if (tripDetail.length !== 0 && loading === false) {
+        return (
+            <TripDetailsPageMainContainer>
+                <Header />
+                <ButtonContainer>
+                    <Button
+                        onClick={goAdminHome}
+                        buttonName="VOLTAR"
+                    />
+                </ButtonContainer>
+                <PageTitle title={tripDetail.name} />
+                <TripDetailsContainer>
+                    <TripDetail>Nome: {tripDetail.name}</TripDetail>
+                    <TripDetail>Descrição: {tripDetail.description}</TripDetail>
+                    <TripDetail>Planeta: {tripDetail.planet}</TripDetail>
+                    <TripDetail>Duração: {tripDetail.durationInDays} dias</TripDetail>
+                    <TripDetail>Data de partida: {tripDetail.date}</TripDetail>
+                </TripDetailsContainer>
+                <PageSubTitle>Candidatos pendentes</PageSubTitle>
+                <TripApplicantsContainer>
+                    {tripDetail.candidates &&
+                        tripDetail.candidates.map((applier) => {
+                            return (
+                                <ApplicantCard key={applier.id}>
+                                    <ApplierDetail>Candidato: {applier.name}</ApplierDetail>
+                                    <ApplierDetail>Idade: {applier.age} anos</ApplierDetail>
+                                    <ApplierDetail>País de origem: {applier.country}</ApplierDetail>
+                                    <ApplierDetail>Profissão: {applier.profession}</ApplierDetail>
+                                    <ApplierDetail>Motivação: {applier.applicationText}</ApplierDetail>
+                                    <DetailButtonContainer>
+                                        <MiniButton onClick={() => aproveApplier(applier)}>APROVAR</MiniButton>
+                                        <MiniButton onClick={() => reproveApplier(applier)}>REPROVAR</MiniButton>
+                                    </DetailButtonContainer>
+                                </ApplicantCard>
+                            );
+                        })}
+                </TripApplicantsContainer>
+                <PageSubTitle>Candidatos aprovados</PageSubTitle>
+                <div>
+                    {tripDetail.approved &&
+                        tripDetail.approved.map((applier) => {
+                            return (
+                                <div key={applier.id}>
+                                    <ul>
+                                        <li>{applier.name}, {applier.age} anos, {applier.country}</li>
+                                    </ul>
+                                </div>
+                            );
+                        })}
+                </div>
+                <Footer />
+            </TripDetailsPageMainContainer>
+        )
+    }
+    else if (loading === true) {
+        return (
+            <TripDetailsPageMainContainer>
+                <Header />
+                <Loading />
+                <Footer />
+            </TripDetailsPageMainContainer>)
+    };
 }
 
 export default TripDetailsPage

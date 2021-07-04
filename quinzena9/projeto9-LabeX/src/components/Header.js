@@ -69,6 +69,7 @@ function Header() {
     const token = localStorage.getItem("token");
 
     const doLogout = () =>{
+        alert("Você realizou logout.")
         localStorage.clear();
     };
     

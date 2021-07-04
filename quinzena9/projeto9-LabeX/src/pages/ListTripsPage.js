@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import PageTitle from '../components/PageTitle';
 import Button from '../components/Button';
+import Loading from '../components/Loading';
 import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
@@ -75,6 +76,7 @@ const TripDurationAndDateContainer = styled.div`
 function ListTripsPage() {
 
     const [tripsList, setTripsList] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         getTripsList();
@@ -86,9 +88,11 @@ function ListTripsPage() {
         axios.get("https://us-central1-labenu-apis.cloudfunctions.net/labeX/ernesto-fauth-munoz/trips")
             .then((response) => {
                 setTripsList(response.data.trips);
+                setLoading(false);
             })
             .catch((error) => {
-                console.log(error.response.data)
+                console.log(error.response.data);
+                setLoading(false);
             })
     };
 
@@ -100,48 +104,58 @@ function ListTripsPage() {
         history.push("/trips/application");
     };
 
-    return (
-        <ListTripsPageMainContainer>
-            <Header />
-            <ButtonContainer>
-                <Button
-                    onClick={goApplicationFormPage}
-                    buttonName="INSCREVER-SE"
-                />
-                <Button
-                    onClick={goAdminHomePage}
-                    buttonName="ÁREA DE ADMIN"
-                />
-            </ButtonContainer>
-            <ListTripsContainer>
-                <PageTitle title="LISTA DE VIAGENS DISPONÍVEIS" />
-                {tripsList.map((trip) => {
-                    return (
-                        <CardMainContainer key={trip.id}>
-                            <TitleContainer>
-                                {trip.name}
-                            </TitleContainer>
-                            <TripNameContainer>
-                                {trip.planet}
-                            </TripNameContainer>
-                            <TripDescContainer>
-                                {trip.description}
-                            </TripDescContainer>
-                            <TripDurationAndDateContainer>
-                                <div>
-                                    Partida em {trip.date}
-                                </div>
-                                <div>
-                                    Duração de {trip.duration} dias.
-                                </div>
-                            </TripDurationAndDateContainer>
-                        </CardMainContainer>
-                    )
-                })}
-            </ListTripsContainer>
-            <Footer />
-        </ListTripsPageMainContainer>
-    )
+    if (tripsList.length !== 0 && loading === false) {
+        return (
+            <ListTripsPageMainContainer>
+                <Header />
+                <ButtonContainer>
+                    <Button
+                        onClick={goApplicationFormPage}
+                        buttonName="INSCREVER-SE"
+                    />
+                    <Button
+                        onClick={goAdminHomePage}
+                        buttonName="ÁREA DE ADMIN"
+                    />
+                </ButtonContainer>
+                <ListTripsContainer>
+                    <PageTitle title="LISTA DE VIAGENS DISPONÍVEIS" />
+                    {tripsList.map((trip) => {
+                        return (
+                            <CardMainContainer key={trip.id}>
+                                <TitleContainer>
+                                    {trip.name}
+                                </TitleContainer>
+                                <TripNameContainer>
+                                    {trip.planet}
+                                </TripNameContainer>
+                                <TripDescContainer>
+                                    {trip.description}
+                                </TripDescContainer>
+                                <TripDurationAndDateContainer>
+                                    <div>
+                                        Partida em {trip.date}
+                                    </div>
+                                    <div>
+                                        Duração de {trip.duration} dias.
+                                    </div>
+                                </TripDurationAndDateContainer>
+                            </CardMainContainer>
+                        )
+                    })}
+                </ListTripsContainer>
+                <Footer />
+            </ListTripsPageMainContainer>
+        )
+    }
+    else if (loading === true) {
+        return (
+            <ListTripsPageMainContainer>
+                <Header />
+                <Loading />
+                <Footer />
+            </ListTripsPageMainContainer>)
+    };
 }
 
 export default ListTripsPage;
