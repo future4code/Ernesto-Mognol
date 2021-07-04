@@ -103,6 +103,14 @@ function CreateTripPage() {
             })
     };
 
+    const today = new Date();
+    const stringToday =
+        today.getFullYear() +
+        "-" +
+        ("0" + (today.getMonth() + 1)).substr(-2) +
+        "-" +
+        ("0" + today.getDate()).substr(-2);
+
     return (
         <CreateTripPageMainContainer>
             <Header />
@@ -148,8 +156,8 @@ function CreateTripPage() {
                         placeholder="Data da viagem (DD/MM/AAAA)"
                         value={form.date}
                         onChange={onChange}
-                        pattern="^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}"
-                        title="Insira um data DD/MM/AAAA."
+                        type="date"
+                        min={stringToday}
                         required />
                     <StyledInput
                         name={"description"}
