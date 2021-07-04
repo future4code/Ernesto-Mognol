@@ -26,9 +26,44 @@ const LoginContainer = styled.div`
 
 const InputsContainer = styled.form`
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: space-around;
     width: 70%;
     margin-bottom: 8px;
+`;
+
+const StyledInput = styled.input`
+    width: 75%;
+    height: 40px;
+    border-radius: 15px;
+    margin: 6px 0;
+    border: 1.5px solid black;
+    font-size: 16px;
+    padding: 0 10px;
+`;
+
+const PageTitle = styled.div`
+    font-size: 35px;
+    width: 120%;
+    display: flex;
+    justify-content: center;
+    margin: 25px;
+`;
+
+const Button = styled.button`
+    width: 130px;
+    height: 45px;
+    background-color: grey;
+    color: whitesmoke;
+    border: 1px solid black;
+    font-size: 18px;
+    border-radius: 12px;
+    &:hover {
+        cursor: pointer;
+        background-color: whitesmoke;
+        color: black;
+    };
 `;
 
 function LoginPage() {
@@ -54,23 +89,23 @@ function LoginPage() {
         <LoginPageMainContainer>
             <Header />
             <LoginContainer>
-                <p>LOGIN PAGE</p>
+                <PageTitle>LOGIN</PageTitle>
                 <InputsContainer onSubmit={submitLogin}>
-                        <input
+                        <StyledInput
                             name="email"
                             placeholder="E-mail"
                             type="email"
                             value={form.email}
                             onChange={onChange}
                             required />
-                        <input
+                        <StyledInput
                             name="password"
                             placeholder="Senha"
                             type="password"
                             value={form.password}
                             onChange={onChange}
                             required />
-                    <button>LOGIN</button>
+                    <Button>ACESSAR</Button>
                 </InputsContainer>
             </LoginContainer>
             <Footer />

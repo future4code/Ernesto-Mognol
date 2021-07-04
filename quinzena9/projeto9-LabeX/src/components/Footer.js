@@ -10,12 +10,13 @@ const FooterMainContainer = styled.div `
     justify-content: center;
     align-items: center;
     border-radius: 25px;
+    margin-top: 40px;
 `;
 
 function Footer () {
     return(
         <FooterMainContainer>
-            <p>FOOTER</p>
+            <p>LabeX LTDA. Todos os direitos reservados.</p>
         </FooterMainContainer>
     )
 }

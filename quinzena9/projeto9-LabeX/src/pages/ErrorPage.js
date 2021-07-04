@@ -21,12 +21,20 @@ const ErrorContainer = styled.div`
     align-items: center;
 `;
 
+const PageTitle = styled.div`
+    font-size: 35px;
+    width: 120%;
+    display: flex;
+    justify-content: center;
+    margin: 25px;
+`;
+
 function ErrorPage (){
     return(
         <ErrorPageMainContainer>
             <Header />
             <ErrorContainer>
-                <p>ERROR PAGE</p>
+                <PageTitle>PÁGINA NÃO ENCONTRADA</PageTitle>
             </ErrorContainer>
             <Footer />
         </ErrorPageMainContainer>

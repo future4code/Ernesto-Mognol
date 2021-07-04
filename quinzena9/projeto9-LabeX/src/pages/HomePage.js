@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import {useHistory} from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 const HomePageMainContainer = styled.div`
     width: 60vw;
@@ -13,35 +13,46 @@ const HomePageMainContainer = styled.div`
     margin: 0 auto;
 `;
 
-const HomeContainer = styled.div`
+const ButtonContainer = styled.div`
     width: 40%;
     height: 100%;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 `;
 
-const ButtonContainer = styled.div`
-    width: 50%;
+const NavButton = styled.div`
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 45px;
+    background-color: grey;
+    color: whitesmoke;
+    border: 1px solid black;
+    font-size: 18px;
+    border-radius: 12px;
+    &:hover {
+        cursor: pointer;
+        background-color: whitesmoke;
+        color: black;
+    };
 `;
 
-function HomePage (){
+function HomePage() {
 
-    const history = useHistory ();
+    const history = useHistory();
 
-    const goListTripsPage = () =>{
+    const goListTripsPage = () => {
         history.push("/trips/list");
     };
 
     const goAdminHomePage = () => {
         const token = localStorage.getItem('token');
-        if(token === null){
+        if (token === null) {
             history.push("/login");
         }
-        else{
+        else {
             history.push("/admin/trips/list");
         };
     };
@@ -49,13 +60,10 @@ function HomePage (){
     return (
         <HomePageMainContainer>
             <Header />
-            <HomeContainer>
-                <p>HOME PAGE</p>
-                <ButtonContainer>
-                    <button onClick={goListTripsPage}>VER VIAGENS</button>
-                    <button onClick={goAdminHomePage}>ÁREA DE ADMIN</button>
-                </ButtonContainer>
-            </HomeContainer>
+            <ButtonContainer>
+                <NavButton onClick={goListTripsPage}>VER VIAGENS</NavButton>
+                <NavButton onClick={goAdminHomePage}>ÁREA DE ADMIN</NavButton>
+            </ButtonContainer>
             <Footer />
         </HomePageMainContainer>
     )
