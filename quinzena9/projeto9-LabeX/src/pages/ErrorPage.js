@@ -2,6 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import PageTitle from '../components/PageTitle';
+import Button from '../components/Button';
+import {useHistory} from 'react-router-dom';
 
 const ErrorPageMainContainer = styled.div`
     width: 60vw;
@@ -21,20 +24,24 @@ const ErrorContainer = styled.div`
     align-items: center;
 `;
 
-const PageTitle = styled.div`
-    font-size: 35px;
-    width: 120%;
-    display: flex;
-    justify-content: center;
-    margin: 25px;
-`;
+function ErrorPage() {
 
-function ErrorPage (){
-    return(
+    const history = useHistory();
+
+    const goHomePage = () => {
+        history.push("/")
+    }
+    return (
         <ErrorPageMainContainer>
             <Header />
             <ErrorContainer>
-                <PageTitle>PÁGINA NÃO ENCONTRADA</PageTitle>
+                <PageTitle
+                    title="PÁGINA NÃO ENCONTRADA"
+                />
+                <Button
+                    onClick={goHomePage}
+                    buttonName="HOME"
+                />
             </ErrorContainer>
             <Footer />
         </ErrorPageMainContainer>

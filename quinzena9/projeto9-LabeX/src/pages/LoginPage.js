@@ -1,8 +1,10 @@
 import React from 'react';
-import styled from 'styled-components';
-import axios from 'axios';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import PageTitle from '../components/PageTitle';
+import Button from '../components/Button';
+import styled from 'styled-components';
+import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import useForm from '../hooks/useForm';
 
@@ -43,32 +45,9 @@ const StyledInput = styled.input`
     padding: 0 10px;
 `;
 
-const PageTitle = styled.div`
-    font-size: 35px;
-    width: 120%;
-    display: flex;
-    justify-content: center;
-    margin: 25px;
-`;
-
-const Button = styled.button`
-    width: 130px;
-    height: 45px;
-    background-color: grey;
-    color: whitesmoke;
-    border: 1px solid black;
-    font-size: 18px;
-    border-radius: 12px;
-    &:hover {
-        cursor: pointer;
-        background-color: whitesmoke;
-        color: black;
-    };
-`;
-
 function LoginPage() {
 
-    const { form, onChange, cleanFields} = useForm({ email: "", password: ""})
+    const { form, onChange, cleanFields } = useForm({ email: "", password: "" });
 
     const history = useHistory();
 
@@ -89,23 +68,25 @@ function LoginPage() {
         <LoginPageMainContainer>
             <Header />
             <LoginContainer>
-                <PageTitle>LOGIN</PageTitle>
+                <PageTitle title="LOGIN" />
                 <InputsContainer onSubmit={submitLogin}>
-                        <StyledInput
-                            name="email"
-                            placeholder="E-mail"
-                            type="email"
-                            value={form.email}
-                            onChange={onChange}
-                            required />
-                        <StyledInput
-                            name="password"
-                            placeholder="Senha"
-                            type="password"
-                            value={form.password}
-                            onChange={onChange}
-                            required />
-                    <Button>ACESSAR</Button>
+                    <StyledInput
+                        name="email"
+                        placeholder="E-mail"
+                        type="email"
+                        value={form.email}
+                        onChange={onChange}
+                        required />
+                    <StyledInput
+                        name="password"
+                        placeholder="Senha"
+                        type="password"
+                        value={form.password}
+                        onChange={onChange}
+                        required />
+                    <Button
+                        buttonName="ACESSAR"
+                    />
                 </InputsContainer>
             </LoginContainer>
             <Footer />
@@ -113,4 +94,4 @@ function LoginPage() {
     )
 }
 
-export default LoginPage
+export default LoginPage;

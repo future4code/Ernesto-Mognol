@@ -1,8 +1,10 @@
 import React from 'react';
-import styled from 'styled-components';
 import Header from '../components/Header';
-import { useHistory } from 'react-router-dom';
 import Footer from '../components/Footer';
+import PageTitle from '../components/PageTitle';
+import Button from '../components/Button';
+import styled from 'styled-components';
+import { useHistory } from 'react-router-dom';
 import useProtectedPage from '../hooks/useProtectedPage';
 import useForm from '../hooks/useForm';
 import axios from 'axios';
@@ -38,14 +40,6 @@ const FormContainer = styled.form`
     margin-bottom: 8px;
 `;
 
-const PageTitle = styled.div`
-    font-size: 35px;
-    width: 120%;
-    display: flex;
-    justify-content: center;
-    margin: 25px;
-`;
-
 const StyledInput = styled.input`
     width: 75%;
     height: 40px;
@@ -64,39 +58,6 @@ const PlanetInput = styled.select`
     border: 1.5px solid black;
     font-size: 16px;
     padding: 0 10px;
-`;
-
-const Button = styled.button`
-    width: 200px;
-    height: 45px;
-    background-color: grey;
-    color: whitesmoke;
-    border: 1px solid black;
-    font-size: 18px;
-    border-radius: 12px;
-    &:hover {
-        cursor: pointer;
-        background-color: whitesmoke;
-        color: black;
-    };
-`;
-
-const NavButton = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 200px;
-    height: 45px;
-    background-color: grey;
-    color: whitesmoke;
-    border: 1px solid black;
-    font-size: 18px;
-    border-radius: 12px;
-    &:hover {
-        cursor: pointer;
-        background-color: whitesmoke;
-        color: black;
-    };
 `;
 
 function CreateTripPage() {
@@ -146,10 +107,15 @@ function CreateTripPage() {
         <CreateTripPageMainContainer>
             <Header />
             <ButtonContainer>
-                    <NavButton onClick={goAdminHome}>VIAGENS LISTADAS</NavButton>
+                <Button
+                    onClick={goAdminHome}
+                    buttonName="VOLTAR"
+                />
             </ButtonContainer>
             <CreateTripContainer>
-                <PageTitle>CRIAR VIAGEM</PageTitle>
+                <PageTitle
+                    title="CRIAR VIAGEM"
+                />
                 <FormContainer onSubmit={submitForm}>
                     <StyledInput
                         name={"name"}
@@ -196,10 +162,13 @@ function CreateTripPage() {
                         name={"durationInDays"}
                         placeholder="Duração da viagem em dias"
                         type="number"
+                        min="55"
                         value={form.durationInDays}
                         onChange={onChange}
                         required />
-                    <Button>CRIAR VIAGEM</Button>
+                    <Button
+                        buttonName="CRIAR VIAGEM"
+                    />
                 </FormContainer>
             </CreateTripContainer>
             <Footer />

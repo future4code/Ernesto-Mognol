@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
 import Header from '../components/Header';
-import { useHistory } from 'react-router-dom';
 import Footer from '../components/Footer';
+import Button from '../components/Button';
+import PageTitle from '../components/PageTitle';
+import styled from 'styled-components';
+import { useHistory } from 'react-router-dom';
 import useProtectedPage from '../hooks/useProtectedPage';
 import axios from 'axios';
 import trashCanIcon from '../img/trashcanicon.png';
@@ -28,32 +30,6 @@ const ButtonContainer = styled.div`
     width: 40%;
     display: flex;
     justify-content: space-around;
-`;
-
-const NavButton = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 200px;
-    height: 45px;
-    background-color: grey;
-    color: whitesmoke;
-    border: 1px solid black;
-    font-size: 18px;
-    border-radius: 12px;
-    &:hover {
-        cursor: pointer;
-        background-color: whitesmoke;
-        color: black;
-    };
-`;
-
-const PageTitle = styled.div`
-    font-size: 35px;
-    width: 120%;
-    display: flex;
-    justify-content: center;
-    margin: 25px;
 `;
 
 const CardMainContainer = styled.div`
@@ -105,6 +81,10 @@ function AdminHomePage() {
         history.push("/admin/trips/create");
     };
 
+    const goBack = () =>{
+        history.push("/");
+    }
+
     const goTripDetails = (tripId) => {
         const tripIdentification = tripId;
         history.push(`/admin/trips/${tripIdentification}`);
@@ -121,14 +101,14 @@ function AdminHomePage() {
     };
 
     const deleteTrip = (trip) => {
-        if(window.confirm("Deseja deletar essa viagem?")){
+        if (window.confirm("Deseja deletar essa viagem?")) {
             const authenticator = localStorage.getItem("token");
             axios.delete(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/ernesto-fauth-munoz/trips/${trip.id}`,
-            {
-                headers: {
-                    auth: authenticator
-                }
-            })
+                {
+                    headers: {
+                        auth: authenticator
+                    }
+                })
                 .then((response) => {
                     alert(`Você deletou a viagem ${trip.name} que ia em direção ao planeta ${trip.planet}!`);
                     history.push("/admin/trips/list");
@@ -140,7 +120,7 @@ function AdminHomePage() {
                     getTripsList();
                 })
         }
-        else{
+        else {
             history.push("/admin/trips/list");
         }
     };
@@ -149,22 +129,30 @@ function AdminHomePage() {
         <AdminHomePageMainContainer>
             <Header />
             <ButtonContainer>
-                <NavButton onClick={goCreateTripPage}>CRIAR VIAGEM</NavButton>
-                <NavButton>LOGOUT</NavButton>
+                <Button
+                    onClick={goCreateTripPage}
+                    buttonName="CRIAR VIAGEM"
+                />
+                <Button
+                    onClick={goBack}
+                    buttonName="VOLTAR"
+                />
             </ButtonContainer>
             <AdminHomeContainer>
-                <PageTitle>VIAGENS LISTADAS</PageTitle>
+                <PageTitle title="VIAGENS LISTADAS" />
                 {tripsList.map((trip) => {
                     return (
-                        <CardMainContainer onClick={() =>  goTripDetails(trip.id)} key={trip.id}>
+                        <CardMainContainer onClick={() => goTripDetails(trip.id)} key={trip.id}>
                             <TripNameContainer>
                                 {trip.name}
                             </TripNameContainer>
-                            <TripDelete>
+                            <TripDelete onClick={(e) => {
+                                e.stopPropagation();
+                                deleteTrip(trip)
+                            }}>
                                 <TripDeleteIcon
                                     src={trashCanIcon}
                                     alt="Trash Can Icon"
-                                    onClick={() =>  deleteTrip(trip)}
                                 />
                             </TripDelete>
                         </CardMainContainer>

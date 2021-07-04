@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
 import Header from '../components/Header';
-import { useHistory } from 'react-router-dom';
 import Footer from '../components/Footer';
+import PageTitle from '../components/PageTitle';
+import Button from '../components/Button';
+import styled from 'styled-components';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
 const ListTripsPageMainContainer = styled.div`
@@ -24,32 +26,6 @@ const ButtonContainer = styled.div`
     width: 40%;
     display: flex;
     justify-content: space-evenly;
-`;
-
-const PageTitle = styled.div`
-    font-size: 35px;
-    width: 120%;
-    display: flex;
-    justify-content: center;
-    margin: 25px;
-`;
-
-const NavButton = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 200px;
-    height: 45px;
-    background-color: grey;
-    color: whitesmoke;
-    border: 1px solid black;
-    font-size: 18px;
-    border-radius: 12px;
-    &:hover {
-        cursor: pointer;
-        background-color: whitesmoke;
-        color: black;
-    };
 `;
 
 const CardMainContainer = styled.div`
@@ -128,11 +104,17 @@ function ListTripsPage() {
         <ListTripsPageMainContainer>
             <Header />
             <ButtonContainer>
-                <NavButton onClick={goApplicationFormPage}>INSCREVER-SE</NavButton>
-                <NavButton onClick={goAdminHomePage}>ÁREA DE ADMIN</NavButton>
+                <Button
+                    onClick={goApplicationFormPage}
+                    buttonName="INSCREVER-SE"
+                />
+                <Button
+                    onClick={goAdminHomePage}
+                    buttonName="ÁREA DE ADMIN"
+                />
             </ButtonContainer>
             <ListTripsContainer>
-                <PageTitle>LISTA DE VIAGENS DISPONÍVEIS</PageTitle>
+                <PageTitle title="LISTA DE VIAGENS DISPONÍVEIS" />
                 {tripsList.map((trip) => {
                     return (
                         <CardMainContainer key={trip.id}>

@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
 import Header from '../components/Header';
-import { useHistory } from 'react-router-dom';
 import Footer from '../components/Footer';
+import PageTitle from '../components/PageTitle';
+import Button from '../components/Button';
+import styled from 'styled-components';
+
+import { useHistory } from 'react-router-dom';
+
 import useForm from '../hooks/useForm';
 import axios from 'axios';
 import { countries } from "../constants/countries";
@@ -29,32 +33,6 @@ const ButtonContainer = styled.div`
     width: 40%;
     display: flex;
     justify-content: space-around;
-`;
-
-const PageTitle = styled.div`
-    font-size: 35px;
-    width: 120%;
-    display: flex;
-    justify-content: center;
-    margin: 25px;
-`;
-
-const NavButton = styled.button`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 200px;
-    height: 45px;
-    background-color: grey;
-    color: whitesmoke;
-    border: 1px solid black;
-    font-size: 18px;
-    border-radius: 12px;
-    &:hover {
-        cursor: pointer;
-        background-color: whitesmoke;
-        color: black;
-    };
 `;
 
 const StyledInput = styled.input`
@@ -140,10 +118,13 @@ function ApplicationFormPage() {
         <ApplicationFormPageMainContainer>
             <Header />
             <ButtonContainer>
-                <NavButton onClick={goListTripsPage}>LISTA DE VIAGENS</NavButton>
+                <Button
+                onClick={goListTripsPage}
+                buttonName={"VOLTAR"}
+                />
             </ButtonContainer>
             <ApplicationFormContainer>
-                <PageTitle>FORMULÁRIO DE APLICAÇÃO</PageTitle>
+                <PageTitle title="FORMULÁRIO DE APLICAÇÃO"/>
                 <FormContainer onSubmit={applyToTrip}>
                     <StyledSelect
                         value={form.tripId}
@@ -214,7 +195,9 @@ function ApplicationFormPage() {
                         title="Mínimo de 30 caractéres."
                         required
                     />
-                    <NavButton>ENVIAR FORMULÁRIO</NavButton>
+                    <Button
+                    buttonName="ENVIAR FORMULÁRIO"
+                    />
                 </FormContainer>
             </ApplicationFormContainer>
             <Footer />

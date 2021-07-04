@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import PageTitle from '../components/PageTitle';
+import Button from '../components/Button'
 import styled from 'styled-components';
 import axios from 'axios';
-import Header from '../components/Header';
 import { useHistory, useParams } from 'react-router-dom';
-import Footer from '../components/Footer';
 import useProtectedPage from '../hooks/useProtectedPage';
 
 const TripDetailsPageMainContainer = styled.div`
@@ -27,14 +29,6 @@ const ButtonContainer = styled.div`
     width: 40%;
     display: flex;
     justify-content: space-around;
-`;
-
-const PageTitle = styled.div`
-    font-size: 35px;
-    width: 120%;
-    display: flex;
-    justify-content: center;
-    margin: 25px;
 `;
 
 const TripDetail = styled.span`
@@ -72,12 +66,12 @@ const DetailButtonContainer = styled.div`
     margin: 4px 0 8px 0;
 `;
 
-const Button = styled.button`
+const MiniButton = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
     width: 120px;
-    height: 30px;
+    height: 35px;
     background-color: grey;
     color: whitesmoke;
     border: 1px solid black;
@@ -89,8 +83,6 @@ const Button = styled.button`
         color: black;
     };
 `;
-
-const ApprovedApplicantsContainer = styled.div``;
 
 function TripDetailsPage() {
 
@@ -125,13 +117,13 @@ function TripDetailsPage() {
 
     const aproveApplier = (applier) => {
         const authenticator = localStorage.getItem("token");
-        const body = {approve: true};
+        const body = { approve: true };
         axios.put(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/ernesto-fauth-munoz/trips/${params.id}/candidates/${applier.id}/decide`, body,
-        {
-            headers: {
-                auth: authenticator
-            }
-        })
+            {
+                headers: {
+                    auth: authenticator
+                }
+            })
             .then((response) => {
                 alert(`Você aprovou o candidato ${applier.name}!`);
                 getTripDetail();
@@ -143,13 +135,13 @@ function TripDetailsPage() {
 
     const reproveApplier = (applier) => {
         const authenticator = localStorage.getItem("token");
-        const body = {approve: false};
+        const body = { approve: false };
         axios.put(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/ernesto-fauth-munoz/trips/${params.id}/candidates/${applier.id}/decide`, body,
-        {
-            headers: {
-                auth: authenticator
-            }
-        })
+            {
+                headers: {
+                    auth: authenticator
+                }
+            })
             .then((response) => {
                 alert(`Você reprovou o candidato ${applier.name}!`);
                 getTripDetail();
@@ -163,9 +155,12 @@ function TripDetailsPage() {
         <TripDetailsPageMainContainer>
             <Header />
             <ButtonContainer>
-                <button onClick={goAdminHome}>VOLTAR</button>
+                <Button
+                    onClick={goAdminHome}
+                    buttonName="VOLTAR"
+                />
             </ButtonContainer>
-            <PageTitle>{tripDetail.name}</PageTitle>
+            <PageTitle title={tripDetail.name} />
             <TripDetailsContainer>
                 <TripDetail>Nome: {tripDetail.name}</TripDetail>
                 <TripDetail>Descrição: {tripDetail.description}</TripDetail>
@@ -185,15 +180,15 @@ function TripDetailsPage() {
                                 <ApplierDetail>Profissão: {applier.profession}</ApplierDetail>
                                 <ApplierDetail>Motivação: {applier.applicationText}</ApplierDetail>
                                 <DetailButtonContainer>
-                                    <Button onClick={() => aproveApplier(applier)}>APROVAR</Button>
-                                    <Button onClick={() => reproveApplier(applier)}>REPROVAR</Button>
+                                    <MiniButton onClick={() => aproveApplier(applier)}>APROVAR</MiniButton>
+                                    <MiniButton onClick={() => reproveApplier(applier)}>REPROVAR</MiniButton>
                                 </DetailButtonContainer>
                             </ApplicantCard>
                         );
                     })}
             </TripApplicantsContainer>
             <PageSubTitle>Candidatos aprovados</PageSubTitle>
-            <ApprovedApplicantsContainer>
+            <div>
                 {tripDetail.approved &&
                     tripDetail.approved.map((applier) => {
                         return (
@@ -204,7 +199,7 @@ function TripDetailsPage() {
                             </div>
                         );
                     })}
-            </ApprovedApplicantsContainer>
+            </div>
             <Footer />
         </TripDetailsPageMainContainer>
     )
