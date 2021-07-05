@@ -137,7 +137,7 @@ function ListTripsPage() {
                                         Partida em {trip.date}
                                     </div>
                                     <div>
-                                        Duração de {trip.duration} dias.
+                                        Duração de {trip.durationInDays} dias.
                                     </div>
                                 </TripDurationAndDateContainer>
                             </CardMainContainer>
